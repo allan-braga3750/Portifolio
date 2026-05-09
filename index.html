@@ -231,12 +231,16 @@
       position: absolute;
       inset: 0;
       cursor: pointer;
-      background: #000 center/cover no-repeat;
+      background:
+        radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 70%) center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 2;
       transition: opacity .3s ease;
+    }
+    .video-poster.has-thumb {
+      background: #000 center/cover no-repeat;
     }
     .video-poster::before {
       content: '';
@@ -642,15 +646,31 @@
     @media (max-width: 900px) {
       body { height: auto; overflow: visible; }
       .layout { flex-direction: column; height: auto; }
-      .left { border-right: none; border-bottom: 1px solid var(--border); overflow: visible; height: auto; }
-      .right { width: 100%; height: auto; }
+      .left  { order: 2; border-right: none; border-top: 1px solid var(--border); overflow: visible; height: auto; }
+      .right { order: 1; width: 100%; height: auto; border-bottom: 1px solid var(--border); }
       .work-label { position: relative; }
       .masonry { columns: 2; }
+      .photo-wrap img { max-height: 60vh; }
     }
     @media (max-width: 480px) {
       .masonry { columns: 1; }
       .right { width: 100%; }
       .profile-name { font-size: 44px; }
+    }
+
+    /* ── Reveal-on-scroll ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1);
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
     }
 
     /* ── Tweaks-driven layout variants ── */
@@ -831,7 +851,17 @@
 
       const poster = document.createElement('div');
       poster.className = 'video-poster';
-      poster.style.backgroundImage = `url('https://drive.google.com/thumbnail?id=${id}&sz=w800')`;
+
+      // Try to load Drive thumbnail; fall back gracefully if blocked (mobile / Safari)
+      const probe = new Image();
+      probe.onload = () => {
+        if (probe.naturalWidth > 1) {
+          poster.classList.add('has-thumb');
+          poster.style.backgroundImage = `url('${probe.src}')`;
+        }
+      };
+      probe.referrerPolicy = 'no-referrer';
+      probe.src = `https://drive.google.com/thumbnail?id=${id}&sz=w800`;
 
       const btn = document.createElement('button');
       btn.className = 'play-btn';
@@ -845,9 +875,11 @@
       const play = () => {
         if (item.classList.contains('is-playing')) return;
         const iframe = document.createElement('iframe');
-        iframe.src = `https://drive.google.com/file/d/${id}/preview?autoplay=1`;
-        iframe.allow = 'autoplay; encrypted-media';
-        iframe.allowFullscreen = true;
+        // mobile browsers reject ?autoplay=1 unless the iframe has allow=autoplay BEFORE src is set
+        iframe.setAttribute('allow', 'autoplay; encrypted-media; fullscreen');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('playsinline', '');
+        iframe.src = `https://drive.google.com/file/d/${id}/preview`;
         item.insertBefore(iframe, poster);
 
         // mask the “open in new window” button (top-right of Drive player)
@@ -860,6 +892,33 @@
 
       poster.addEventListener('click', play);
     });
+  })();
+</script>
+
+<!-- Reveal-on-scroll: subtle fade-in for hero blocks + each video tile -->
+<script>
+  (function(){
+    const targets = [
+      ...document.querySelectorAll('.sidebar-content > div, .sidebar-content > p, .photo-wrap, .video-item')
+    ];
+    targets.forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = Math.min(i * 60, 420) + 'ms';
+    });
+
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    targets.forEach(el => io.observe(el));
   })();
 </script>
 
