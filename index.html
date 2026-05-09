@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allan Braga · Editor de Vídeo & Strategist</title>
+
+  <!-- Primary SEO -->
+  <meta name="description" content="Allan Braga — Editor de vídeo e estrategista audiovisual. Edição de criativos, VSLs, short e long form, conteúdo para redes sociais, content commerce, institucionais, UGC ads e consultoria. Os resultados são encontrados na junção de narrativa e conceito estético." />
+  <meta name="keywords" content="editor de vídeo, video editor, edição de vídeo, VSL, criativos, UGC, content commerce, motion design, Allan Braga, Premiere Pro, After Effects, DaVinci Resolve" />
+  <meta name="author" content="Allan Braga" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="canonical" href="https://allanbragaeditor.com/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/og-image.png" />
+
+  <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content="https://allanbragaeditor.com/" />
+  <meta property="og:title" content="Allan Braga · Editor de Vídeo & Strategist" />
+  <meta property="og:description" content="Os resultados são encontrados na junção de narrativa e conceito estético. Edição de criativos, VSLs, short e long form, UGC e mais." />
+  <meta property="og:image" content="https://allanbragaeditor.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Allan Braga — Video Editor & Strategist" />
+  <meta property="og:site_name" content="Allan Braga" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@allanbragaedito" />
+  <meta name="twitter:creator" content="@allanbragaedito" />
+  <meta name="twitter:title" content="Allan Braga · Editor de Vídeo & Strategist" />
+  <meta name="twitter:description" content="Os resultados são encontrados na junção de narrativa e conceito estético." />
+  <meta name="twitter:image" content="https://allanbragaeditor.com/assets/og-image.png" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Allan Braga",
+    "jobTitle": "Video Editor & Strategist",
+    "url": "https://allanbragaeditor.com/",
+    "image": "https://allanbragaeditor.com/assets/og-image.png",
+    "sameAs": [
+      "https://www.instagram.com/allanbragaeditor",
+      "https://x.com/allanbragaedito",
+      "https://www.linkedin.com/in/allanbragaeditor"
+    ],
+    "knowsAbout": ["Video Editing","Motion Design","Color Grading","Content Strategy","UGC Ads"],
+    "address": { "@type": "PostalAddress", "addressCountry": "BR" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&family=Anton&family=Archivo+Black&display=swap" rel="stylesheet" />
+
+  <style>
+    @font-face {
+      font-family: 'Analogue';
+      src: url('fonts/Analogue.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+
+  <!-- React + Babel for the Tweaks panel only -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:        #0a0a0a;
+      --bg-soft:   #0f0f0f;
+      --surface:   #161616;
+      --surface2:  #1c1c1c;
+      --border:    #242424;
+      --border-2:  #2e2e2e;
+      --accent:    #e63946;
+      --accent-2:  #ff5263;
+      --text:      #f3f3f3;
+      --text-2:    #b8b8b8;
+      --muted:     #777;
+      --muted-2:   #4a4a4a;
+
+      --gap:       6px;
+      --display:   'Analogue', 'Inter', system-ui, sans-serif;
+
+      --photo-filter: grayscale(100%) contrast(1.05);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    /* Subtle film grain over the whole page */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: .04;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/></svg>");
+    }
+
+    /* ══════════════════════════════
+       LAYOUT PRINCIPAL
+    ══════════════════════════════ */
+    .layout {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* ══════════════════════════════
+       LEFT — Vídeos (masonry)
+    ══════════════════════════════ */
+    .left {
+      flex: 1;
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: var(--gap);
+      background: var(--bg-soft);
+      position: relative;
+    }
+    .left::-webkit-scrollbar { width: 4px; }
+    .left::-webkit-scrollbar-track { background: transparent; }
+    .left::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+    .left::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+
+    /* small label fixed top-left of the masonry */
+    .work-label {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px 16px;
+      margin: calc(var(--gap) * -1) calc(var(--gap) * -1) var(--gap);
+      background: linear-gradient(to bottom, rgba(10,10,10,.95), rgba(10,10,10,.85) 60%, transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      pointer-events: none;
+    }
+    .work-label .lbl {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .work-label .count {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: var(--muted-2);
+      font-variant-numeric: tabular-nums;
+    }
+    .work-label .count em {
+      font-style: normal;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .masonry {
+      columns: 2;
+      column-gap: var(--gap);
+    }
+    @media (min-width: 1400px) {
+      .masonry { columns: 3; }
+    }
+
+    .video-item {
+      break-inside: avoid;
+      margin-bottom: var(--gap);
+      background: #000;
+      overflow: hidden;
+      display: block;
+      position: relative;
+      transition: transform .35s cubic-bezier(.2,.8,.2,1);
+    }
+    .video-item::after {
+      content: '';
+      position: absolute; inset: 0;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
+      pointer-events: none;
+      transition: box-shadow .25s;
+    }
+    .video-item:hover::after {
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+
+    .video-item iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    /* aspect ratio variations -> messy tasteful masonry */
+    .video-item:nth-child(1) { aspect-ratio: 9/16; }
+    .video-item:nth-child(2) { aspect-ratio: 9/18; }
+    .video-item:nth-child(3) { aspect-ratio: 9/14; }
+    .video-item:nth-child(4) { aspect-ratio: 9/17; }
+    .video-item:nth-child(5) { aspect-ratio: 9/15; }
+    .video-item:nth-child(6) { aspect-ratio: 9/19; }
+
+    /* poster (thumbnail + play overlay) before iframe loads */
+    .video-poster {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      background: #000 center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: opacity .3s ease;
+    }
+    .video-poster::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.35) 0%, transparent 40%, rgba(0,0,0,.15) 100%);
+      transition: background .3s ease;
+    }
+    .video-item:hover .video-poster::before {
+      background: linear-gradient(to top, rgba(0,0,0,.5) 0%, rgba(0,0,0,.15) 50%, rgba(0,0,0,.25) 100%);
+    }
+
+    .play-btn {
+      position: relative;
+      z-index: 1;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(12px) saturate(140%);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+      border: 1px solid rgba(255,255,255,.35);
+      transition: transform .35s cubic-bezier(.2,.8,.2,1), background .25s, border-color .25s;
+      box-shadow: 0 6px 20px rgba(0,0,0,.35);
+    }
+    .play-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: #fff;
+      transform: translateX(1px);
+      transition: transform .25s;
+    }
+    .video-item:hover .play-btn {
+      transform: scale(1.08);
+      background: rgba(255,255,255,.18);
+      border-color: rgba(255,255,255,.6);
+    }
+    .video-item:hover .play-btn svg {
+      transform: translateX(2px) scale(1.05);
+    }
+
+    /* hide poster after click */
+    .video-item.is-playing .video-poster {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* small mask over the Drive “open in new window” button (top-right corner) */
+    .iframe-mask {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 56px;
+      height: 56px;
+      z-index: 3;
+      cursor: default;
+      background: transparent;
+    }
+
+    /* ══════════════════════════════
+       RIGHT — Sidebar
+    ══════════════════════════════ */
+    .right {
+      width: 380px;
+      flex-shrink: 0;
+      height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      position: relative;
+    }
+    .right::-webkit-scrollbar { width: 4px; }
+    .right::-webkit-scrollbar-track { background: transparent; }
+    .right::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+
+    /* ── Photo with fade ── */
+    .photo-wrap {
+      position: relative;
+      width: 100%;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .photo-wrap img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: top center;
+      max-height: 460px;
+      filter: var(--photo-filter);
+      transition: filter .6s ease;
+    }
+    .photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 60%;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(10,10,10,0.4) 35%,
+        rgba(10,10,10,0.85) 70%,
+        var(--bg) 100%
+      );
+      pointer-events: none;
+    }
+    /* corner tag on photo */
+    .photo-tag {
+      position: absolute;
+      top: 14px; left: 14px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text);
+      font-weight: 600;
+      mix-blend-mode: difference;
+    }
+    .photo-tag::before {
+      content: '';
+      width: 14px; height: 1px;
+      background: currentColor;
+    }
+    .photo-corner {
+      position: absolute;
+      top: 14px; right: 14px;
+      z-index: 2;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: var(--text);
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+      mix-blend-mode: difference;
+      text-align: right;
+      line-height: 1.4;
+    }
+
+    /* ── Sidebar content ── */
+    .sidebar-content {
+      padding: 0 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      text-align: right;
+    }
+
+    .profile-head {
+      margin-top: -12px;
+      position: relative;
+      z-index: 3;
+    }
+    .profile-name {
+      font-family: var(--display);
+      font-size: 56px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .profile-role {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      color: #22c55e;
+      justify-content: flex-end;
+      margin-top: 14px;
+      letter-spacing: 0.3px;
+      font-weight: 500;
+    }
+    .status-dot {
+      width: 7px; height: 7px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(34,197,94,.5);
+      animation: pulse 2.2s infinite;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(34,197,94,.55); }
+      70%  { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+
+    .profile-bio {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-2);
+      font-weight: 400;
+      font-style: italic;
+      max-width: 32ch;
+      margin-left: auto;
+      letter-spacing: 0.1px;
+    }
+    .profile-bio::before {
+      content: '"';
+      font-family: var(--display);
+      font-size: 40px;
+      line-height: 0;
+      color: var(--accent);
+      position: relative;
+      top: 8px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    /* divider with center notch */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      width: 100%;
+      position: relative;
+    }
+    .divider::after {
+      content: '';
+      position: absolute;
+      right: 0; top: -1px;
+      width: 24px; height: 3px;
+      background: var(--accent);
+    }
+
+    /* ── Block titles ── */
+    .block-title-lg {
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 18px;
+      text-align: right;
+      display: flex;
+      align-items: baseline;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .block-title-lg .num {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      color: var(--muted-2);
+      font-variant-numeric: tabular-nums;
+    }
+    .block-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+      text-align: right;
+    }
+
+    /* ── Services ── */
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .service-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 14px;
+      padding: 13px 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      transition: color .2s, transform .2s, padding .2s;
+      cursor: default;
+      letter-spacing: 0.1px;
+    }
+    .service-item:first-child { border-top: 1px solid var(--border); }
+    .service-item:hover {
+      color: var(--accent);
+      padding-right: 4px;
+    }
+    .service-item:hover .service-arrow {
+      color: var(--accent);
+      transform: translate(2px, -2px);
+    }
+    .service-arrow {
+      font-size: 11px;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: color .2s, transform .2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── Tools ── */
+    .tools-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .tool-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 14px;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 0;
+      cursor: default;
+      transition: color .2s;
+      color: var(--text);
+    }
+    .tool-item .tool-meta {
+      font-size: 10px;
+      color: var(--muted-2);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-right: auto;
+      padding-left: 4px;
+    }
+    .tool-logo {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,.4));
+    }
+
+    /* ── CTA ── */
+    .cta-block { display: flex; flex-direction: column; gap: 10px; }
+
+    .btn-primary {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      width: 100%; padding: 18px 22px;
+      background: var(--text); color: var(--bg);
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: none; cursor: pointer;
+      transition: transform .15s ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-primary .arrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      transition: transform .25s;
+    }
+    .btn-primary:hover .arrow { transform: translate(3px, -3px); }
+
+    /* ── Social ── */
+    .social-row { display: flex; gap: 6px; }
+    .social-btn {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 13px 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .social-btn svg { transition: transform .2s; }
+    .social-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .social-btn:hover svg { transform: scale(1.1); }
+
+    .sidebar-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--muted-2);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .sidebar-footer .v {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      body { height: auto; overflow: visible; }
+      .layout { flex-direction: column; height: auto; }
+      .left { border-right: none; border-bottom: 1px solid var(--border); overflow: visible; height: auto; }
+      .right { width: 100%; height: auto; }
+      .work-label { position: relative; }
+      .masonry { columns: 2; }
+    }
+    @media (max-width: 480px) {
+      .masonry { columns: 1; }
+      .right { width: 100%; }
+      .profile-name { font-size: 44px; }
+    }
+
+    /* ── Tweaks-driven layout variants ── */
+    body[data-layout="reversed"] .left { order: 2; border-right: none; border-left: 1px solid var(--border); }
+    body[data-layout="reversed"] .right { order: 1; }
+    body[data-layout="reversed"] .sidebar-content { text-align: left; }
+    body[data-layout="reversed"] .work-label,
+    body[data-layout="reversed"] .block-title-lg,
+    body[data-layout="reversed"] .block-title,
+    body[data-layout="reversed"] .profile-role,
+    body[data-layout="reversed"] .sidebar-footer { text-align: left; }
+    body[data-layout="reversed"] .service-item,
+    body[data-layout="reversed"] .tool-item,
+    body[data-layout="reversed"] .status-badge { justify-content: flex-start; }
+    body[data-layout="reversed"] .block-title-lg { justify-content: flex-start; flex-direction: row-reverse; }
+    body[data-layout="reversed"] .profile-bio { margin-left: 0; margin-right: auto; }
+    body[data-layout="reversed"] .divider::after { right: auto; left: 0; }
+    body[data-layout="reversed"] .photo-tag { left: auto; right: 14px; }
+    body[data-layout="reversed"] .photo-corner { right: auto; left: 14px; text-align: left; }
+  </style>
+</head>
+<body data-layout="default">
+
+<div class="layout">
+
+  <!-- ══════════ LEFT — VÍDEOS ══════════ -->
+  <section class="left">
+
+    <div class="masonry">
+
+      <div class="video-item" data-id="1RNiaZcNTYfaFfMZhCyJ1DwMREVIHda4W"></div>
+      <div class="video-item" data-id="11d1aTJ_JUow3INit1A9NUA_4mSAc9JYZ"></div>
+      <div class="video-item" data-id="1cG8pe5guE-qD-lHxr2kUQ-kjNO4JE8mM"></div>
+      <div class="video-item" data-id="1tc8BJTRehOeSI3J2k5_-zwkZeaymVzNw"></div>
+      <div class="video-item" data-id="108Xqmk9rrNvBYfgSWDaS-j5ue5Qu-sb9"></div>
+      <div class="video-item" data-id="1I5MHJ7fO4Q_CYjlMePf5fOdMU7ZDcs9-"></div>
+
+    </div>
+  </section>
+
+  <!-- ══════════ RIGHT — SIDEBAR ══════════ -->
+  <aside class="right">
+
+    <div class="photo-wrap">
+      <img src="assets/foto.jpg" alt="Allan Braga" id="profile-photo" />
+    </div>
+
+    <div class="sidebar-content">
+
+      <div class="profile-head">
+        <div class="profile-name">Allan<br>Braga</div>
+        <div class="profile-role">Video Editor &amp; Strategist</div>
+        <div class="status-badge">
+          <span>Disponível para projetos</span>
+          <span class="status-dot"></span>
+        </div>
+      </div>
+
+      <p class="profile-bio">
+        Os resultados são encontrados na junção de <strong>narrativa</strong> e <strong>conceito estético</strong>.
+      </p>
+
+      <div class="divider"></div>
+
+      <!-- O que eu faço -->
+      <div>
+        <div class="block-title-lg">
+          <span class="num">01 /</span>
+          <span>O que eu faço</span>
+        </div>
+        <div class="services-list">
+          <div class="service-item">
+            <span>Edição de Criativos, VSLs, Short e Long Form</span>
+            <span class="service-arrow">↗</span>
+          </div>
+          <div class="service-item">
+            <span>Conteúdo para Redes Sociais</span>
+            <span class="service-arrow">↗</span>
+          </div>
+          <div class="service-item">
+            <span>Content Commerce</span>
+            <span class="service-arrow">↗</span>
+          </div>
+          <div class="service-item">
+            <span>Institucionais e Onboarding</span>
+            <span class="service-arrow">↗</span>
+          </div>
+          <div class="service-item">
+            <span>UGC Ads</span>
+            <span class="service-arrow">↗</span>
+          </div>
+          <div class="service-item">
+            <span>Consultoria e Reposicionamento Audiovisual</span>
+            <span class="service-arrow">↗</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Por onde eu faço -->
+      <div>
+        <div class="block-title-lg">
+          <span class="num">02 /</span>
+          <span>Por onde eu faço</span>
+        </div>
+        <div class="tools-list">
+          <div class="tool-item">
+            <span class="tool-meta">Edição</span>
+            <span>Premiere Pro</span>
+            <img class="tool-logo" src="assets/premiere.png" alt="Premiere Pro" />
+          </div>
+          <div class="tool-item">
+            <span class="tool-meta">Motion</span>
+            <span>After Effects</span>
+            <img class="tool-logo" src="assets/after-effects.png" alt="After Effects" />
+          </div>
+          <div class="tool-item">
+            <span class="tool-meta">Color</span>
+            <span>DaVinci Resolve</span>
+            <img class="tool-logo" src="assets/davinci.png" alt="DaVinci Resolve" />
+          </div>
+          <div class="tool-item">
+            <span class="tool-meta">AI</span>
+            <span>Higgsfield</span>
+            <img class="tool-logo" src="assets/higgsfield.png" alt="Higgsfield" />
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- CTA -->
+      <div class="cta-block">
+        <div class="block-title">— Vamos trabalhar juntos?</div>
+
+        <a class="btn-primary" href="https://wa.me/5585987478930" target="_blank" rel="noopener">
+          <span>Contato</span>
+          <span class="arrow">↗</span>
+        </a>
+
+        <div class="social-row">
+          <a class="social-btn" href="https://x.com/allanbragaedito" target="_blank" rel="noopener" aria-label="Twitter">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Twitter
+          </a>
+          <a class="social-btn" href="https://www.instagram.com/allanbragaeditor" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+          <a class="social-btn" href="https://www.linkedin.com/in/allanbragaeditor" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <span>© 2026 · Allan Braga</span>
+        <span class="v">v.2.6</span>
+      </div>
+
+    </div>
+  </aside>
+
+</div>
+
+<!-- Tweaks panel mount -->
+<div id="tweaks-root"></div>
+
+<!-- Video player: lazy-load iframe on click + custom play button -->
+<script>
+  (function(){
+    const PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+
+    document.querySelectorAll('.video-item[data-id]').forEach((item) => {
+      const id = item.dataset.id;
+
+      const poster = document.createElement('div');
+      poster.className = 'video-poster';
+      poster.style.backgroundImage = `url('https://drive.google.com/thumbnail?id=${id}&sz=w800')`;
+
+      const btn = document.createElement('button');
+      btn.className = 'play-btn';
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Reproduzir vídeo');
+      btn.innerHTML = PLAY_SVG;
+      poster.appendChild(btn);
+
+      item.appendChild(poster);
+
+      const play = () => {
+        if (item.classList.contains('is-playing')) return;
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://drive.google.com/file/d/${id}/preview?autoplay=1`;
+        iframe.allow = 'autoplay; encrypted-media';
+        iframe.allowFullscreen = true;
+        item.insertBefore(iframe, poster);
+
+        // mask the “open in new window” button (top-right of Drive player)
+        const mask = document.createElement('div');
+        mask.className = 'iframe-mask';
+        item.appendChild(mask);
+
+        item.classList.add('is-playing');
+      };
+
+      poster.addEventListener('click', play);
+    });
+  })();
+</script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel">
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "#f3f3f3",
+    "displayFont": "Analogue",
+    "photo": "grayscale",
+    "layout": "default"
+  }/*EDITMODE-END*/;
+
+  const PHOTO_FILTERS = {
+    grayscale: "grayscale(100%) contrast(1.05)",
+    color:     "grayscale(0%) saturate(.95) contrast(1.05)",
+    duotone:   "grayscale(100%) contrast(1.1) sepia(.4) hue-rotate(-30deg) saturate(2)",
+    warm:      "grayscale(40%) contrast(1.08) sepia(.3) saturate(1.2)"
+  };
+
+  function App() {
+    const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+    React.useEffect(() => {
+      const r = document.documentElement;
+      r.style.setProperty('--accent', t.accent);
+      r.style.setProperty('--display', `'${t.displayFont}', 'Inter', system-ui, sans-serif`);
+      r.style.setProperty('--photo-filter', PHOTO_FILTERS[t.photo] || PHOTO_FILTERS.grayscale);
+      document.body.setAttribute('data-layout', t.layout);
+    }, [t]);
+
+    return (
+      <TweaksPanel title="Tweaks">
+        <TweakSection label="Cor" />
+        <TweakColor
+          label="Acento"
+          value={t.accent}
+          options={['#e63946', '#ff6a00', '#22c55e', '#3b82f6', '#a78bfa', '#f3f3f3']}
+          onChange={(v) => setTweak('accent', v)}
+        />
+
+        <TweakSection label="Tipografia" />
+        <TweakSelect
+          label="Display"
+          value={t.displayFont}
+          options={['Analogue', 'Bebas Neue', 'Anton', 'Archivo Black', 'Inter']}
+          onChange={(v) => setTweak('displayFont', v)}
+        />
+
+        <TweakSection label="Foto" />
+        <TweakRadio
+          label="Tratamento"
+          value={t.photo}
+          options={['grayscale', 'color', 'duotone', 'warm']}
+          onChange={(v) => setTweak('photo', v)}
+        />
+
+        <TweakSection label="Layout" />
+        <TweakRadio
+          label="Posição"
+          value={t.layout}
+          options={['default', 'reversed']}
+          onChange={(v) => setTweak('layout', v)}
+        />
+      </TweaksPanel>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<App />);
+</script>
+
+</body>
+</html>
