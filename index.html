@@ -6,8 +6,8 @@
   <title>Allan Braga · Editor de Vídeo & Strategist</title>
 
   <!-- Primary SEO -->
-  <meta name="description" content="Allan Braga — Editor de vídeo e estrategista audiovisual. Edição de criativos, VSLs, short e long form, conteúdo para redes sociais, content commerce, institucionais, UGC ads e consultoria. Os resultados são encontrados na junção de narrativa e conceito estético." />
-  <meta name="keywords" content="editor de vídeo, video editor, edição de vídeo, VSL, criativos, UGC, content commerce, motion design, Allan Braga, Premiere Pro, After Effects, DaVinci Resolve" />
+  <meta name="description" content="Allan Braga — editor de vídeo para agências, produtoras e empresas. 5 anos de edição e mais de 1.000 vídeos entregues: institucionais, VSLs, criativos, depoimentos, short e long form. Narrativa e conceito estético no mesmo corte." />
+  <meta name="keywords" content="editor de vídeo, video editor, edição de vídeo freelancer, editor para agência, editor para produtora, vídeo institucional, VSL, criativos, UGC, content commerce, motion design, Allan Braga, Premiere Pro, After Effects, DaVinci Resolve" />
   <meta name="author" content="Allan Braga" />
   <meta name="theme-color" content="#0a0a0a" />
   <link rel="canonical" href="https://allanbragaeditor.com/" />
@@ -21,7 +21,7 @@
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:url" content="https://allanbragaeditor.com/" />
   <meta property="og:title" content="Allan Braga · Editor de Vídeo & Strategist" />
-  <meta property="og:description" content="Os resultados são encontrados na junção de narrativa e conceito estético. Edição de criativos, VSLs, short e long form, UGC e mais." />
+  <meta property="og:description" content="Editor de vídeo para agências, produtoras e empresas. 5 anos, mais de 1.000 vídeos entregues." />
   <meta property="og:image" content="https://allanbragaeditor.com/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -33,7 +33,7 @@
   <meta name="twitter:site" content="@allanbragaedito" />
   <meta name="twitter:creator" content="@allanbragaedito" />
   <meta name="twitter:title" content="Allan Braga · Editor de Vídeo & Strategist" />
-  <meta name="twitter:description" content="Os resultados são encontrados na junção de narrativa e conceito estético." />
+  <meta name="twitter:description" content="Editor de vídeo para agências, produtoras e empresas. 5 anos, mais de 1.000 vídeos entregues." />
   <meta name="twitter:image" content="https://allanbragaeditor.com/assets/og-image.png" />
 
   <!-- Schema.org JSON-LD -->
@@ -50,14 +50,14 @@
       "https://x.com/allanbragaedito",
       "https://www.linkedin.com/in/allanbraga90"
     ],
-    "knowsAbout": ["Video Editing","Motion Design","Color Grading","Content Strategy","UGC Ads"],
+    "knowsAbout": ["Video Editing","Motion Design","Color Grading","Content Strategy","Corporate Video","UGC Ads"],
     "address": { "@type": "PostalAddress", "addressCountry": "BR" }
   }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&family=Anton&family=Archivo+Black&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     @font-face {
@@ -67,14 +67,7 @@
       font-style: normal;
       font-display: swap;
     }
-  </style>
 
-  <!-- React + Babel for the Tweaks panel only -->
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-
-  <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
@@ -84,15 +77,17 @@
       --surface2:  #1c1c1c;
       --border:    #242424;
       --border-2:  #2e2e2e;
-      --accent:    #e63946;
-      --accent-2:  #ff5263;
+      --accent:    #f3f3f3;
       --text:      #f3f3f3;
       --text-2:    #b8b8b8;
-      --muted:     #777;
-      --muted-2:   #4a4a4a;
+      --muted:     #808080;
+      --muted-2:   #555;
+      --live:      #22c55e;
+      --rec:       #ff3b30;
 
       --gap:       6px;
       --display:   'Analogue', 'Inter', system-ui, sans-serif;
+      --ease:      cubic-bezier(.2,.8,.2,1);
 
       --photo-filter: grayscale(100%) contrast(1.05);
     }
@@ -134,10 +129,11 @@
     }
 
     /* ══════════════════════════════
-       LEFT — Vídeos (masonry)
+       LEFT — Manifesto + vídeos
     ══════════════════════════════ */
     .left {
       flex: 1;
+      min-width: 0;
       border-right: 1px solid var(--border);
       overflow-y: auto;
       overflow-x: hidden;
@@ -145,43 +141,257 @@
       background: var(--bg-soft);
       position: relative;
     }
+    .left { scroll-behavior: smooth; }
     .left::-webkit-scrollbar { width: 4px; }
     .left::-webkit-scrollbar-track { background: transparent; }
     .left::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
     .left::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
 
-    /* small label fixed top-left of the masonry */
-    .work-label {
-      position: sticky;
-      top: 0;
-      z-index: 5;
+    /* ── Manifesto ── */
+    .intro {
+      padding: clamp(32px, 5vw, 64px) clamp(20px, 3.5vw, 48px) 40px;
+    }
+    .eyebrow {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 14px 18px 16px;
-      margin: calc(var(--gap) * -1) calc(var(--gap) * -1) var(--gap);
-      background: linear-gradient(to bottom, rgba(10,10,10,.95), rgba(10,10,10,.85) 60%, transparent);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      pointer-events: none;
-    }
-    .work-label .lbl {
+      gap: 10px;
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--muted);
     }
-    .work-label .count {
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      color: var(--muted-2);
+    .eyebrow::before {
+      content: '';
+      width: 18px; height: 1px;
+      background: currentColor;
+    }
+    .headline {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(48px, 6.4vw, 104px);
+      line-height: .92;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-top: 22px;
+    }
+    .headline .dim { color: var(--muted-2); }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: clamp(24px, 4vw, 64px);
+      align-items: end;
+      margin-top: clamp(28px, 3.5vw, 44px);
+    }
+    .lede {
+      font-size: 15px;
+      line-height: 1.7;
+      font-weight: 400;
+      color: var(--text-2);
+      max-width: 52ch;
+    }
+    .lede strong { color: var(--text); font-weight: 600; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr) minmax(0, .8fr);
+      border-top: 1px solid var(--border);
+    }
+    .stat {
+      padding-top: 14px;
+    }
+    .stat + .stat { padding-left: 16px; border-left: 1px solid var(--border); }
+    .stat-num {
+      font-family: var(--display);
+      font-size: clamp(34px, 3.4vw, 52px);
+      line-height: 1;
       font-variant-numeric: tabular-nums;
     }
-    .work-label .count em {
-      font-style: normal;
-      color: var(--text);
+    .stat-num small {
+      font-size: .5em;
+      color: var(--muted);
+      margin-right: 2px;
+      vertical-align: .55em;
+    }
+    .stat-lbl {
+      margin-top: 8px;
+      font-size: 10px;
       font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── Clientes (faixa corrida) ── */
+    .clients {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 0 calc(var(--gap) * -1) var(--gap);
+      padding: 16px 0;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+              mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    }
+    .clients-inner {
+      display: flex;
+      width: max-content;
+      animation: marquee 38s linear infinite;
+    }
+    .clients:hover .clients-inner { animation-play-state: paused; }
+    .clients-track { display: flex; }
+    .client {
+      font-family: var(--display);
+      font-size: 22px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-2);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+    }
+    .client::after {
+      content: '✦';
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      color: var(--muted-2);
+      margin: 0 26px;
+    }
+    @keyframes marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── Abas: atalhos para as seções ── */
+    .sc-nav {
+      position: sticky;
+      top: calc(var(--gap) * -1);
+      z-index: 6;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 12px clamp(14px, 3.5vw, 42px);
+      margin: 0 calc(var(--gap) * -1) var(--gap);
+      background: rgba(15,15,15,.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .sc-nav::-webkit-scrollbar { display: none; }
+    .sc-nav a {
+      flex-shrink: 0;
+      padding: 9px 14px;
+      border: 1px solid var(--border-2);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .sc-nav a:hover { color: var(--text); border-color: var(--muted-2); }
+    .sc-nav a.is-active { color: var(--bg); background: var(--text); border-color: var(--text); }
+
+    /* ── Seções de trabalhos (Realtime, Imobiliário, Manifestos...) ── */
+    .showcase {
+      padding: 40px clamp(14px, 3.5vw, 42px) 44px;
+      margin-bottom: var(--gap);
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 60px;
+    }
+    .sc-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0;
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(26px, 2.4vw, 34px);
+      line-height: 1;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .sc-tag::before {
+      content: '';
+      flex-shrink: 0;
+      width: 22px; height: 1px;
+      background: var(--muted);
+    }
+    .sc-tag--rec { color: var(--rec); }
+    .sc-tag--rec::before {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--rec);
+      animation: rec 1.6s steps(1) infinite;
+    }
+    @keyframes rec { 50% { opacity: .25; } }
+    .sc-grid {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+      margin-top: 28px;
+    }
+    .sc-card {
+      position: relative;
+      padding: 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .sc-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 40px; height: 2px;
+      background: var(--text);
+    }
+    .showcase--rec .sc-card::before { background: var(--rec); }
+    .sc-videos {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px 16px;
+    }
+    .sc-videos--wide { grid-template-columns: 1fr; }
+    .sc-videos figure { min-width: 0; }
+    .sc-videos .video-item { margin-bottom: 0; }
+    .sc-videos .video-item[data-id] { aspect-ratio: 9/16; }
+    .sc-videos figcaption {
+      display: grid;
+      gap: 4px;
+      padding-top: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .sc-videos figcaption span + span { color: var(--muted); }
+    .showcase .masonry { margin-top: 28px; columns: 2; }
+
+    /* wide screens: the section name rides a narrow rail on the left, work on the right */
+    @media (min-width: 1200px) {
+      .showcase {
+        display: grid;
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 32px;
+        align-items: start;
+      }
+      .sc-head {
+        position: sticky;
+        top: 76px;
+      }
+      .sc-tag {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .sc-grid, .showcase .masonry { margin-top: 0; }
+    }
+    @media (max-width: 560px) {
+      .sc-card { padding: 14px; }
+      .sc-videos { grid-template-columns: 1fr; }
+      .showcase .masonry { columns: 1; }
     }
 
     .masonry {
@@ -189,7 +399,7 @@
       column-gap: var(--gap);
     }
     @media (min-width: 1400px) {
-      .masonry { columns: 3; }
+      .masonry { columns: 4; }
     }
 
     .video-item {
@@ -199,7 +409,6 @@
       overflow: hidden;
       display: block;
       position: relative;
-      transition: transform .35s cubic-bezier(.2,.8,.2,1);
     }
     .video-item::after {
       content: '';
@@ -207,9 +416,10 @@
       box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
       pointer-events: none;
       transition: box-shadow .25s;
+      z-index: 4;
     }
     .video-item:hover::after {
-      box-shadow: inset 0 0 0 1px var(--accent);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.35);
     }
 
     .video-item iframe {
@@ -219,12 +429,21 @@
       border: none;
     }
     /* aspect ratio variations -> messy tasteful masonry */
-    .video-item:nth-child(1) { aspect-ratio: 9/16; }
-    .video-item:nth-child(2) { aspect-ratio: 9/18; }
-    .video-item:nth-child(3) { aspect-ratio: 9/14; }
-    .video-item:nth-child(4) { aspect-ratio: 9/17; }
-    .video-item:nth-child(5) { aspect-ratio: 9/15; }
-    .video-item:nth-child(6) { aspect-ratio: 9/19; }
+    .masonry .video-item:nth-child(1) { aspect-ratio: 9/16; }
+    .masonry .video-item:nth-child(2) { aspect-ratio: 9/18; }
+    .masonry .video-item:nth-child(3) { aspect-ratio: 9/14; }
+    .masonry .video-item:nth-child(4) { aspect-ratio: 9/17; }
+    .masonry .video-item:nth-child(5) { aspect-ratio: 9/15; }
+    .masonry .video-item:nth-child(6) { aspect-ratio: 9/19; }
+
+    /* Instagram embeds: crop the IG header/footer so only the media shows */
+    .video-item[data-ig] { aspect-ratio: 9/16 !important; }
+    .video-item[data-ig][data-ratio="16/9"] { aspect-ratio: 16/9 !important; }
+    .video-item[data-ig] iframe {
+      position: absolute;
+      max-width: none;
+      background: #000;
+    }
 
     /* poster (thumbnail + play overlay) before iframe loads */
     .video-poster {
@@ -266,8 +485,9 @@
       backdrop-filter: blur(12px) saturate(140%);
       -webkit-backdrop-filter: blur(12px) saturate(140%);
       border: 1px solid rgba(255,255,255,.35);
-      transition: transform .35s cubic-bezier(.2,.8,.2,1), background .25s, border-color .25s;
+      transition: transform .35s var(--ease), background .25s, border-color .25s;
       box-shadow: 0 6px 20px rgba(0,0,0,.35);
+      cursor: pointer;
     }
     .play-btn svg {
       width: 16px;
@@ -303,11 +523,25 @@
       background: transparent;
     }
 
+    .work-foot {
+      padding: 28px 18px 22px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 400;
+      text-align: center;
+    }
+    .work-foot a {
+      color: var(--text);
+      border-bottom: 1px solid var(--border-2);
+      transition: border-color .2s;
+    }
+    .work-foot a:hover { border-color: var(--text); }
+
     /* ══════════════════════════════
        RIGHT — Sidebar
     ══════════════════════════════ */
     .right {
-      width: 380px;
+      width: 400px;
       flex-shrink: 0;
       height: 100vh;
       overflow-y: auto;
@@ -333,9 +567,8 @@
       display: block;
       object-fit: cover;
       object-position: top center;
-      max-height: 460px;
+      max-height: 440px;
       filter: var(--photo-filter);
-      transition: filter .6s ease;
     }
     .photo-wrap::after {
       content: '';
@@ -350,46 +583,13 @@
       );
       pointer-events: none;
     }
-    /* corner tag on photo */
-    .photo-tag {
-      position: absolute;
-      top: 14px; left: 14px;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text);
-      font-weight: 600;
-      mix-blend-mode: difference;
-    }
-    .photo-tag::before {
-      content: '';
-      width: 14px; height: 1px;
-      background: currentColor;
-    }
-    .photo-corner {
-      position: absolute;
-      top: 14px; right: 14px;
-      z-index: 2;
-      font-size: 9px;
-      letter-spacing: 1.5px;
-      color: var(--text);
-      font-weight: 500;
-      font-variant-numeric: tabular-nums;
-      mix-blend-mode: difference;
-      text-align: right;
-      line-height: 1.4;
-    }
 
     /* ── Sidebar content ── */
     .sidebar-content {
       padding: 0 28px 32px;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 30px;
       text-align: right;
     }
 
@@ -420,7 +620,7 @@
       align-items: center;
       gap: 7px;
       font-size: 11px;
-      color: #22c55e;
+      color: var(--live);
       justify-content: flex-end;
       margin-top: 14px;
       letter-spacing: 0.3px;
@@ -428,7 +628,7 @@
     }
     .status-dot {
       width: 7px; height: 7px;
-      background: #22c55e;
+      background: var(--live);
       border-radius: 50%;
       box-shadow: 0 0 0 0 rgba(34,197,94,.5);
       animation: pulse 2.2s infinite;
@@ -461,7 +661,7 @@
       vertical-align: middle;
     }
 
-    /* divider with center notch */
+    /* divider with end notch */
     .divider {
       height: 1px;
       background: var(--border);
@@ -485,7 +685,6 @@
       text-transform: uppercase;
       color: var(--text);
       margin-bottom: 18px;
-      text-align: right;
       display: flex;
       align-items: baseline;
       justify-content: flex-end;
@@ -506,14 +705,37 @@
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 14px;
-      text-align: right;
+    }
+
+    /* ── Para quem ── */
+    .audience {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .audience-item {
+      padding: 18px 18px 18px 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .audience-item h3 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .2px;
+      color: var(--text);
+    }
+    .audience-item p {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--text-2);
     }
 
     /* ── Services ── */
     .services-list {
       display: flex;
       flex-direction: column;
-      gap: 0;
     }
     .service-item {
       display: flex;
@@ -525,25 +747,13 @@
       font-weight: 500;
       color: var(--text);
       border-bottom: 1px solid var(--border);
-      transition: color .2s, transform .2s, padding .2s;
-      cursor: default;
       letter-spacing: 0.1px;
     }
     .service-item:first-child { border-top: 1px solid var(--border); }
-    .service-item:hover {
-      color: var(--accent);
-      padding-right: 4px;
-    }
-    .service-item:hover .service-arrow {
-      color: var(--accent);
-      transform: translate(2px, -2px);
-    }
     .service-arrow {
       font-size: 11px;
-      color: var(--muted);
+      color: var(--muted-2);
       flex-shrink: 0;
-      transition: color .2s, transform .2s;
-      font-family: 'Inter', sans-serif;
     }
 
     /* ── Tools ── */
@@ -560,8 +770,6 @@
       font-size: 13px;
       font-weight: 500;
       padding: 8px 0;
-      cursor: default;
-      transition: color .2s;
       color: var(--text);
     }
     .tool-item .tool-meta {
@@ -584,6 +792,21 @@
 
     /* ── CTA ── */
     .cta-block { display: flex; flex-direction: column; gap: 10px; }
+    .cta-title {
+      font-family: var(--display);
+      font-size: 34px;
+      line-height: .95;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .cta-text {
+      font-size: 13px;
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--text-2);
+      margin: 4px 0 10px auto;
+      max-width: 34ch;
+    }
 
     .btn-primary {
       display: flex; align-items: center; justify-content: space-between; gap: 10px;
@@ -593,10 +816,10 @@
       letter-spacing: 1.5px;
       text-transform: uppercase;
       border: none; cursor: pointer;
-      transition: transform .15s ease;
+      transition: transform .15s ease, background .2s;
       text-decoration: none;
     }
-    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-primary:hover { transform: translateY(-2px); background: #fff; }
     .btn-primary .arrow {
       font-family: 'Inter', sans-serif;
       font-size: 14px;
@@ -617,12 +840,12 @@
       font-weight: 600;
       color: var(--muted);
       text-decoration: none;
-      transition: all .2s;
+      transition: color .2s, border-color .2s;
     }
     .social-btn svg { transition: transform .2s; }
     .social-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: var(--border-2);
+      color: var(--text);
     }
     .social-btn:hover svg { transform: scale(1.1); }
 
@@ -642,27 +865,40 @@
       font-variant-numeric: tabular-nums;
     }
 
+    a:focus-visible, button:focus-visible {
+      outline: 1px solid var(--text);
+      outline-offset: 3px;
+    }
+
     /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .intro-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 900px) {
       body { height: auto; overflow: visible; }
       .layout { flex-direction: column; height: auto; }
       .left  { order: 2; border-right: none; border-top: 1px solid var(--border); overflow: visible; height: auto; }
       .right { order: 1; width: 100%; height: auto; border-bottom: 1px solid var(--border); }
-      .work-label { position: relative; }
       .masonry { columns: 2; }
+      .sc-nav { top: 0; }
       .photo-wrap img { max-height: 60vh; }
+      .sidebar-content { padding: 0 20px 28px; }
+      .intro { padding: 40px 14px 32px; }
     }
     @media (max-width: 480px) {
       .masonry { columns: 1; }
-      .right { width: 100%; }
       .profile-name { font-size: 44px; }
+      .headline { font-size: 44px; }
+      .stat + .stat { padding-left: 12px; }
+      .stat-num { font-size: 32px; }
+      .client { font-size: 18px; }
     }
 
     /* ── Reveal-on-scroll ── */
     .reveal {
       opacity: 0;
       transform: translateY(14px);
-      transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1);
+      transition: opacity .9s var(--ease), transform .9s var(--ease);
       will-change: opacity, transform;
     }
     .reveal.is-visible {
@@ -671,51 +907,208 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
+      .clients-inner { animation: none; }
+      .status-dot { animation: none; }
+      .sc-tag--rec::before { animation: none; }
     }
-
-    /* ── Tweaks-driven layout variants ── */
-    body[data-layout="reversed"] .left { order: 2; border-right: none; border-left: 1px solid var(--border); }
-    body[data-layout="reversed"] .right { order: 1; }
-    body[data-layout="reversed"] .sidebar-content { text-align: left; }
-    body[data-layout="reversed"] .work-label,
-    body[data-layout="reversed"] .block-title-lg,
-    body[data-layout="reversed"] .block-title,
-    body[data-layout="reversed"] .profile-role,
-    body[data-layout="reversed"] .sidebar-footer { text-align: left; }
-    body[data-layout="reversed"] .service-item,
-    body[data-layout="reversed"] .tool-item,
-    body[data-layout="reversed"] .status-badge { justify-content: flex-start; }
-    body[data-layout="reversed"] .block-title-lg { justify-content: flex-start; flex-direction: row-reverse; }
-    body[data-layout="reversed"] .profile-bio { margin-left: 0; margin-right: auto; }
-    body[data-layout="reversed"] .divider::after { right: auto; left: 0; }
-    body[data-layout="reversed"] .photo-tag { left: auto; right: 14px; }
-    body[data-layout="reversed"] .photo-corner { right: auto; left: 14px; text-align: left; }
   </style>
 </head>
-<body data-layout="default">
+<body>
 
 <div class="layout">
 
-  <!-- ══════════ LEFT — VÍDEOS ══════════ -->
+  <!-- ══════════ LEFT — MANIFESTO + VÍDEOS ══════════ -->
   <section class="left">
 
-    <div class="masonry">
+    <header class="intro">
+      <div class="eyebrow">Editor para agências, produtoras e empresas</div>
 
-      <div class="video-item" data-id="19ViO4WJ3cRzf5-mtYyW-UbS5FwWeWngV"></div>
-      <div class="video-item" data-id="11d1aTJ_JUow3INit1A9NUA_4mSAc9JYZ"></div>
-      <div class="video-item" data-ig="DZFv0vCNS0N"></div>
-      <div class="video-item" data-ig="DbG7rAbJgHQ"></div>
-      <div class="video-item" data-id="108Xqmk9rrNvBYfgSWDaS-j5ue5Qu-sb9"></div>
-      <div class="video-item" data-id="1I5MHJ7fO4Q_CYjlMePf5fOdMU7ZDcs9-"></div>
+      <h1 class="headline">
+        Cada corte<br>
+        carrega<br>
+        <span class="dim">uma ideia.</span>
+      </h1>
 
+      <div class="intro-grid">
+        <p class="lede">
+          Há cinco anos eu transformo material bruto em história. Antes de abrir a timeline, quero entender
+          <strong>o que a marca precisa dizer</strong> e para quem. Depois disso, ritmo, cor, som e motion
+          trabalham para essa mensagem, e o acabamento chega no padrão de quem assina o projeto com você.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num">5</div>
+            <div class="stat-lbl">Anos<br>editando</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num"><small>+</small>1.000</div>
+            <div class="stat-lbl">Vídeos<br>entregues</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num"><small>+</small>15</div>
+            <div class="stat-lbl">Marcas<br>atendidas</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="clients" aria-label="Clientes">
+      <div class="clients-inner">
+      <div class="clients-track">
+        <span class="client">HIAS Group</span>
+        <span class="client">Manual de Donos</span>
+        <span class="client">A Trinca</span>
+        <span class="client">Marketing do Agora</span>
+        <span class="client">Hunting Winners</span>
+        <span class="client">Rebels</span>
+        <span class="client">Portal INC</span>
+        <span class="client">Unique Energy</span>
+        <span class="client">BAIQ</span>
+        <span class="client">Criare</span>
+      </div>
+      <div class="clients-track" aria-hidden="true">
+        <span class="client">HIAS Group</span>
+        <span class="client">Manual de Donos</span>
+        <span class="client">A Trinca</span>
+        <span class="client">Marketing do Agora</span>
+        <span class="client">Hunting Winners</span>
+        <span class="client">Rebels</span>
+        <span class="client">Portal INC</span>
+        <span class="client">Unique Energy</span>
+        <span class="client">BAIQ</span>
+        <span class="client">Criare</span>
+      </div>
+      </div>
     </div>
+
+    <nav class="sc-nav" aria-label="Seções">
+      <a href="#realtime">Realtime</a>
+      <a href="#imobiliario">Imobiliário</a>
+      <a href="#manifestos">Manifestos</a>
+      <a href="#talking-head">Talking head</a>
+      <a href="#outros">Outros exemplos</a>
+    </nav>
+
+    <section class="showcase showcase--rec" id="realtime" aria-labelledby="realtime-title">
+      <div class="sc-head">
+        <h2 class="sc-tag sc-tag--rec" id="realtime-title">Realtime</h2>
+      </div>
+
+      <div class="sc-grid">
+        <article class="sc-card">
+          <div class="sc-videos">
+            <figure>
+              <div class="video-item" data-ig="DX0VfJSNLhw"></div>
+              <figcaption><span>Hunting Winners</span><span>Maio · Reel</span></figcaption>
+            </figure>
+            <figure>
+              <div class="video-item" data-ig="Dc9uM3hN1Q3"></div>
+              <figcaption><span>Hunting Winners</span><span>Setembro · Reel</span></figcaption>
+            </figure>
+          </div>
+        </article>
+        <article class="sc-card">
+          <div class="sc-videos sc-videos--wide">
+            <figure>
+              <div class="video-item" data-ig="DWaMhcfjqZ8" data-ratio="16/9" data-cover="vertical"></div>
+              <figcaption><span>Marketing do Agora</span><span>Aftermovie · 2ª ed.</span></figcaption>
+            </figure>
+            <figure>
+              <div class="video-item" data-ig="DcCk8agBZ7O" data-ratio="16/9"></div>
+              <figcaption><span>Marketing do Agora</span><span>Aftermovie · 3ª ed.</span></figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="showcase" id="imobiliario" aria-labelledby="imobiliario-title">
+      <div class="sc-head">
+        <h2 class="sc-tag" id="imobiliario-title">Nicho imobiliário</h2>
+      </div>
+
+      <div class="sc-grid">
+        <article class="sc-card">
+          <div class="sc-videos">
+            <figure>
+              <div class="video-item" data-ig="DZFv0vCNS0N"></div>
+              <figcaption><span>Rafael Boff</span><span>Obra</span></figcaption>
+            </figure>
+            <figure>
+              <div class="video-item" data-ig="DeCwwL8pT-p"></div>
+              <figcaption><span>Portal INC</span><span>Lançamento</span></figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="showcase" id="manifestos" aria-labelledby="manifestos-title">
+      <div class="sc-head">
+        <h2 class="sc-tag" id="manifestos-title">Manifestos</h2>
+      </div>
+
+      <div class="sc-grid">
+        <article class="sc-card">
+          <div class="sc-videos sc-videos--wide">
+            <figure>
+              <div class="video-item" data-ig="Db_CgGluu-e" data-ratio="16/9" data-cover="vertical"></div>
+              <figcaption><span>Marketing do Agora</span><span>Boas-vindas</span></figcaption>
+            </figure>
+            <figure>
+              <div class="video-item" data-ig="DdXjRNVJN_p" data-ratio="16/9"></div>
+              <figcaption><span>Marketing do Agora</span><span>4ª edição</span></figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="showcase" id="talking-head" aria-labelledby="talking-head-title">
+      <div class="sc-head">
+        <h2 class="sc-tag" id="talking-head-title">Talking head</h2>
+      </div>
+
+      <div class="sc-grid">
+        <article class="sc-card">
+          <div class="sc-videos">
+            <figure>
+              <div class="video-item" data-id="11d1aTJ_JUow3INit1A9NUA_4mSAc9JYZ"></div>
+              <figcaption><span>Criare</span><span>Prontidão para IA</span></figcaption>
+            </figure>
+            <figure>
+              <div class="video-item" data-ig="DWjg7TRDjLv"></div>
+              <figcaption><span>HIAS Group</span><span>Two Lost Kids</span></figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="showcase" id="outros" aria-labelledby="outros-title">
+      <div class="sc-head">
+        <h2 class="sc-tag" id="outros-title">Outros exemplos</h2>
+      </div>
+
+      <div class="masonry">
+        <div class="video-item" data-id="19ViO4WJ3cRzf5-mtYyW-UbS5FwWeWngV"></div>
+        <div class="video-item" data-id="108Xqmk9rrNvBYfgSWDaS-j5ue5Qu-sb9"></div>
+        <div class="video-item" data-ig="DbG7rAbJgHQ"></div>
+        <div class="video-item" data-id="1I5MHJ7fO4Q_CYjlMePf5fOdMU7ZDcs9-"></div>
+      </div>
+    </section>
+
+    <p class="work-foot">
+      Quer ver algo mais próximo do seu projeto? <a href="https://wa.me/5521981816581?text=Oi%20Allan%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20ver%20mais%20trabalhos." target="_blank" rel="noopener">Peça o portfólio completo</a>.
+    </p>
   </section>
 
   <!-- ══════════ RIGHT — SIDEBAR ══════════ -->
   <aside class="right">
 
     <div class="photo-wrap">
-      <img src="assets/foto.jpg" alt="Allan Braga" id="profile-photo" />
+      <img src="assets/foto.jpg?v=3" alt="Allan Braga" id="profile-photo" />
     </div>
 
     <div class="sidebar-content">
@@ -735,31 +1128,51 @@
 
       <div class="divider"></div>
 
+      <!-- Para quem -->
+      <div>
+        <h2 class="block-title-lg">
+          <span class="num">01 /</span>
+          <span>Para quem</span>
+        </h2>
+        <div class="audience">
+          <div class="audience-item">
+            <h3>Agências e produtoras</h3>
+            <p>Entro como extensão do seu time. Você manda o bruto e o briefing, eu devolvo a peça pronta, no padrão da casa e no prazo que o cliente de vocês espera.</p>
+          </div>
+          <div class="audience-item">
+            <h3>Empresas</h3>
+            <p>Institucionais, onboarding e depoimentos de cliente, com a narrativa montada a partir do que as pessoas realmente disseram.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
       <!-- O que eu faço -->
       <div>
-        <div class="block-title-lg">
-          <span class="num">01 /</span>
+        <h2 class="block-title-lg">
+          <span class="num">02 /</span>
           <span>O que eu faço</span>
-        </div>
+        </h2>
         <div class="services-list">
-          <div class="service-item">
-            <span>Edição de Criativos, VSLs, Short e Long Form</span>
-            <span class="service-arrow">↗</span>
-          </div>
-          <div class="service-item">
-            <span>Conteúdo para Redes Sociais</span>
-            <span class="service-arrow">↗</span>
-          </div>
-          <div class="service-item">
-            <span>Content Commerce</span>
-            <span class="service-arrow">↗</span>
-          </div>
           <div class="service-item">
             <span>Institucionais e Onboarding</span>
             <span class="service-arrow">↗</span>
           </div>
           <div class="service-item">
-            <span>UGC Ads</span>
+            <span>Depoimentos de Clientes</span>
+            <span class="service-arrow">↗</span>
+          </div>
+          <div class="service-item">
+            <span>Criativos, VSLs, Short e Long Form</span>
+            <span class="service-arrow">↗</span>
+          </div>
+          <div class="service-item">
+            <span>Cortes de Eventos, Palestras e Lives</span>
+            <span class="service-arrow">↗</span>
+          </div>
+          <div class="service-item">
+            <span>Conteúdo para Redes Sociais e UGC Ads</span>
             <span class="service-arrow">↗</span>
           </div>
           <div class="service-item">
@@ -773,30 +1186,30 @@
 
       <!-- Por onde eu faço -->
       <div>
-        <div class="block-title-lg">
-          <span class="num">02 /</span>
+        <h2 class="block-title-lg">
+          <span class="num">03 /</span>
           <span>Por onde eu faço</span>
-        </div>
+        </h2>
         <div class="tools-list">
           <div class="tool-item">
             <span class="tool-meta">Edição</span>
             <span>Premiere Pro</span>
-            <img class="tool-logo" src="assets/premiere.png" alt="Premiere Pro" />
+            <img class="tool-logo" src="assets/premiere.png" alt="" />
           </div>
           <div class="tool-item">
             <span class="tool-meta">Motion</span>
             <span>After Effects</span>
-            <img class="tool-logo" src="assets/after-effects.png" alt="After Effects" />
+            <img class="tool-logo" src="assets/after-effects.png" alt="" />
           </div>
           <div class="tool-item">
             <span class="tool-meta">Color</span>
             <span>DaVinci Resolve</span>
-            <img class="tool-logo" src="assets/davinci.png" alt="DaVinci Resolve" />
+            <img class="tool-logo" src="assets/davinci.png" alt="" />
           </div>
           <div class="tool-item">
             <span class="tool-meta">AI</span>
             <span>Higgsfield</span>
-            <img class="tool-logo" src="assets/higgsfield.png" alt="Higgsfield" />
+            <img class="tool-logo" src="assets/higgsfield.png" alt="" />
           </div>
         </div>
       </div>
@@ -806,9 +1219,11 @@
       <!-- CTA -->
       <div class="cta-block">
         <div class="block-title">— Vamos trabalhar juntos?</div>
+        <div class="cta-title">Me conta<br>o projeto.</div>
+        <p class="cta-text">Um vídeo pontual ou uma demanda recorrente: me diga o que precisa e eu respondo com prazo e proposta.</p>
 
-        <a class="btn-primary" href="https://wa.me/5521981816581" target="_blank" rel="noopener">
-          <span>Contato</span>
+        <a class="btn-primary" href="https://wa.me/5521981816581?text=Oi%20Allan%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
+          <span>Chamar no WhatsApp</span>
           <span class="arrow">↗</span>
         </a>
 
@@ -830,7 +1245,7 @@
 
       <div class="sidebar-footer">
         <span>© 2026 · Allan Braga</span>
-        <span class="v">v.2.6</span>
+        <span class="v">v.3.0</span>
       </div>
 
     </div>
@@ -838,13 +1253,19 @@
 
 </div>
 
-<!-- Tweaks panel mount -->
-<div id="tweaks-root"></div>
-
 <!-- Video player: lazy-load iframe on click + custom play button -->
 <script>
   (function(){
     const PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+
+    // Instagram embed chrome: header bar above the media, caption/actions below it.
+    // IG caps the media box at 4:5, so taller videos (9:16 reels) sit pillarboxed inside
+    // it and the iframe is widened until the video fills the tile; wider videos (16:9)
+    // fill their box and only need the header/footer cropped. +2% overscan hides seams.
+    const IG_HEADER = 55;
+    const IG_FOOTER = 320;
+    const IG_OVERSCAN = 1.02;
+    const IG_BAR = 48;
 
     document.querySelectorAll('.video-item[data-ig]').forEach((item) => {
       const igId = item.dataset.ig;
@@ -852,9 +1273,41 @@
       iframe.setAttribute('allow', 'autoplay; encrypted-media; fullscreen');
       iframe.setAttribute('allowfullscreen', '');
       iframe.setAttribute('playsinline', '');
-      iframe.style.background = '#000';
-      iframe.src = `https://www.instagram.com/reel/${igId}/embed`;
+      iframe.setAttribute('scrolling', 'no');
+      iframe.src = `https://www.instagram.com/p/${igId}/embed`;
       item.appendChild(iframe);
+
+      const [rw, rh] = (item.dataset.ratio || '9/16').split('/').map(Number);
+      const videoRatio = rh / rw;
+      const boxRatio = Math.min(videoRatio, 1.25);
+      const widen = IG_OVERSCAN * Math.max(videoRatio / 1.25, 1);
+
+      // Horizontal video with a vertical cover: IG draws both inside a 4:5 box that
+      // overflows its 16:9 player, with its "View more" bar across the middle. Frame the
+      // cover below that bar. (IG's own player can't show this video cleanly.)
+      const framingCover = item.dataset.cover === 'vertical';
+
+      const fit = () => {
+        const w = item.clientWidth;
+        if (framingCover) {
+          const iw = IG_OVERSCAN * w / (1.25 * 9 / 16);
+          const coverH = iw * 1.25;
+          iframe.style.width = `${iw}px`;
+          iframe.style.left = `${(w - iw) / 2}px`;
+          // IG paints its "View more" bar right under the 16:9 player, across the cover:
+          // frame the part of the cover right below that bar.
+          iframe.style.top = `-${IG_HEADER + iw * 9 / 16 + IG_BAR}px`;
+          iframe.style.height = `${IG_HEADER + coverH + IG_FOOTER}px`;
+          return;
+        }
+        const iw = w * widen;
+        iframe.style.width = `${iw}px`;
+        iframe.style.left = `${(w - iw) / 2}px`;
+        iframe.style.top = `-${IG_HEADER}px`;
+        iframe.style.height = `${IG_HEADER + iw * boxRatio + IG_FOOTER}px`;
+      };
+      fit();
+      new ResizeObserver(fit).observe(item);
     });
 
     document.querySelectorAll('.video-item[data-id]').forEach((item) => {
@@ -910,7 +1363,7 @@
 <script>
   (function(){
     const targets = [
-      ...document.querySelectorAll('.sidebar-content > div, .sidebar-content > p, .photo-wrap, .video-item')
+      ...document.querySelectorAll('.intro > *, .showcase > *, .sidebar-content > div, .sidebar-content > p, .photo-wrap, .video-item')
     ];
     targets.forEach((el, i) => {
       el.classList.add('reveal');
@@ -933,71 +1386,26 @@
   })();
 </script>
 
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel">
-  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-    "accent": "#f3f3f3",
-    "displayFont": "Analogue",
-    "photo": "grayscale",
-    "layout": "default"
-  }/*EDITMODE-END*/;
+<!-- Abas: highlight the section in view and keep its tab visible -->
+<script>
+  (function(){
+    const nav = document.querySelector('.sc-nav');
+    const links = [...nav.querySelectorAll('a')];
+    const sections = links.map(a => document.querySelector(a.getAttribute('href')));
 
-  const PHOTO_FILTERS = {
-    grayscale: "grayscale(100%) contrast(1.05)",
-    color:     "grayscale(0%) saturate(.95) contrast(1.05)",
-    duotone:   "grayscale(100%) contrast(1.1) sepia(.4) hue-rotate(-30deg) saturate(2)",
-    warm:      "grayscale(40%) contrast(1.08) sepia(.3) saturate(1.2)"
-  };
+    const activate = (link) => {
+      links.forEach(l => l.classList.toggle('is-active', l === link));
+      nav.scrollTo({ left: link.offsetLeft - nav.clientWidth / 2 + link.offsetWidth / 2, behavior: 'smooth' });
+    };
 
-  function App() {
-    const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
-
-    React.useEffect(() => {
-      const r = document.documentElement;
-      r.style.setProperty('--accent', t.accent);
-      r.style.setProperty('--display', `'${t.displayFont}', 'Inter', system-ui, sans-serif`);
-      r.style.setProperty('--photo-filter', PHOTO_FILTERS[t.photo] || PHOTO_FILTERS.grayscale);
-      document.body.setAttribute('data-layout', t.layout);
-    }, [t]);
-
-    return (
-      <TweaksPanel title="Tweaks">
-        <TweakSection label="Cor" />
-        <TweakColor
-          label="Acento"
-          value={t.accent}
-          options={['#e63946', '#ff6a00', '#22c55e', '#3b82f6', '#a78bfa', '#f3f3f3']}
-          onChange={(v) => setTweak('accent', v)}
-        />
-
-        <TweakSection label="Tipografia" />
-        <TweakSelect
-          label="Display"
-          value={t.displayFont}
-          options={['Analogue', 'Bebas Neue', 'Anton', 'Archivo Black', 'Inter']}
-          onChange={(v) => setTweak('displayFont', v)}
-        />
-
-        <TweakSection label="Foto" />
-        <TweakRadio
-          label="Tratamento"
-          value={t.photo}
-          options={['grayscale', 'color', 'duotone', 'warm']}
-          onChange={(v) => setTweak('photo', v)}
-        />
-
-        <TweakSection label="Layout" />
-        <TweakRadio
-          label="Posição"
-          value={t.layout}
-          options={['default', 'reversed']}
-          onChange={(v) => setTweak('layout', v)}
-        />
-      </TweaksPanel>
-    );
-  }
-
-  ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<App />);
+    if (!('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) activate(links[sections.indexOf(e.target)]);
+      });
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    sections.forEach(s => s && io.observe(s));
+  })();
 </script>
 
 </body>
