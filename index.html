@@ -317,7 +317,11 @@ const SECS=[
     {f:'ou-pib',c:'PIB',d:'Reel',u:'https://www.instagram.com/p/DfqIiu4ggHB/'}]}
 ];
 const strips=[];
-const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){const p=v.play();if(p&&p.catch)p.catch(()=>{})}else v.pause()}),{rootMargin:'120px'});
+const inView=new Set(),tryPlay=v=>{const p=v.play();if(p&&p.catch)p.catch(()=>{})};
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){inView.add(v);if(!document.hidden)tryPlay(v)}else{inView.delete(v);v.pause()}}),{rootMargin:'120px'});
+/* a aba voltou a ficar visível, ou o primeiro toque liberou o play: retoma o que está na tela */
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)inView.forEach(v=>{if(v.paused)tryPlay(v)})});
+addEventListener('pointerdown',()=>inView.forEach(v=>{if(v.paused)tryPlay(v)}),{passive:true});
 const rowEls=SECS.map((s,i)=>{
   const sec=document.createElement('section');sec.className='sec';
   const row=document.createElement('div');row.className='row'+(s.rec?' rec':'');
